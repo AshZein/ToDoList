@@ -5,6 +5,7 @@ public class Item {
     String time;
     String title;
     String description;
+    String id;
     boolean complete;
 
     public Item(){
@@ -27,7 +28,7 @@ public class Item {
     public void setDescription(String description){
         this.description = description;
     }
-
+    public void setId(String id){ this.id = id; }
     public boolean toggleCompletion(){
         this.complete = !this.complete;
         return this.complete;
