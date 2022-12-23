@@ -5,17 +5,17 @@ import java.util.NoSuchElementException;
 
 public class ItemList {
     HashMap<String,Item> complete =  new HashMap<String,Item>();
-    HashMap<String,Item> uncompleted = new HashMap<String,Item>();
+    HashMap<String,Item> incomplete = new HashMap<String,Item>();
 
     public void addItem(String id, Item item){
-        uncompleted.put(id, item);
+        incomplete.put(id, item);
     }
     public boolean completeItem(String id){
-        if(uncompleted.containsKey(id)){
-            Item item = uncompleted.get(id);
+        if(incomplete.containsKey(id)){
+            Item item = incomplete.get(id);
             // Moving item to the complete set.
             complete.put(id, item);
-            uncompleted.remove(id);
+            incomplete.remove(id);
 
             return item.toggleCompletion();
         }
@@ -26,8 +26,8 @@ public class ItemList {
     public boolean uncompleteItem(String id){
         if (complete.containsKey(id)){
             Item item = complete.get(id);
-            // Moving item from complete to uncompleted
-            uncompleted.put(id, item);
+            // Moving item from complete to incomplete
+            incomplete.put(id, item);
             complete.remove(id);
 
             return item.toggleCompletion();
@@ -41,7 +41,7 @@ public class ItemList {
         return this.complete;
     }
 
-    public HashMap<String,Item> getUncompleted(){
-        return this.uncompleted;
+    public HashMap<String,Item> getincomplete(){
+        return this.incomplete;
     }
 }
