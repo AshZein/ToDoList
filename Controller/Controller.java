@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Item;
 import Model.ItemList;
 
 import java.util.HashMap;
@@ -30,5 +31,13 @@ public class Controller {
 
     private String generateId(){
         throw new UnsupportedOperationException("Not complete yet");
+    }
+
+    public HashMap<String, Item> getIncomplete(){
+        return itemList.getincompleted();
+    }
+
+    public HashMap<String,Item> getComplet(){
+        return itemList.getCompleted();
     }
 }
