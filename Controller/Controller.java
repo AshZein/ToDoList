@@ -24,7 +24,7 @@ public class Controller {
         iBuild.setId(id);
 
         // adding item to the ItemList
-        itemList.addItem(id, iBuild.getItem());
+        itemList.addItem(iBuild.getItem());
 
         return id;
     }
@@ -34,7 +34,7 @@ public class Controller {
     }
 
     public HashMap<String, Item> getIncomplete(){
-        return itemList.getincompleted();
+        return itemList.getIncomplete();
     }
 
     public HashMap<String,Item> getComplet(){
