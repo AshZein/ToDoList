@@ -41,7 +41,7 @@ public class ItemList {
         return this.complete;
     }
 
-    public HashMap<String,Item> getincomplete(){
+    public HashMap<String,Item> getIncomplete(){
         return this.incomplete;
     }
 }
