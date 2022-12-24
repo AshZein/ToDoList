@@ -50,4 +50,5 @@ public class Item {
     public boolean getCompletion(){
         return complete;
     }
+    public String getId(){ return this.id; }
 }
