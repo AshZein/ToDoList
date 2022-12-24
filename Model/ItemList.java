@@ -7,8 +7,8 @@ public class ItemList {
     HashMap<String,Item> complete =  new HashMap<String,Item>();
     HashMap<String,Item> incomplete = new HashMap<String,Item>();
 
-    public void addItem(String id, Item item){
-        incomplete.put(id, item);
+    public void addItem(Item item){
+        incomplete.put(item.getId(), item);
     }
     public boolean completeItem(String id){
         if(incomplete.containsKey(id)){
@@ -23,7 +23,7 @@ public class ItemList {
             throw new NoSuchElementException("This item does not exist.");
         }
     }
-    public boolean uncompleteItem(String id){
+    public boolean incompleteItem(String id){
         if (complete.containsKey(id)){
             Item item = complete.get(id);
             // Moving item from complete to incomplete
