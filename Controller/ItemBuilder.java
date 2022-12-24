@@ -23,7 +23,7 @@ public class ItemBuilder {
         item.setDescription(description);
     }
     public void setId(String id){
-
+        item.setId(id);
     }
 
     public Item getItem(){
