@@ -36,7 +36,14 @@ public class Controller {
         this.stage.setScene(scene);
         this.stage.show();
     }
+    /*
+     * need to setCurrItemList before using getIncomplete, getComplete and addItem
+     */
+    public void setCurrItemList(String name){ itemList = toDoLists.getItemList(name); }
 
+    /*
+     * add an item to the currently selected ItemList
+     */
     public String addItem(HashMap<String, String> parameters){
         ItemBuilder iBuild = new ItemBuilder();
 
@@ -48,8 +55,6 @@ public class Controller {
         String id = generateId();
         iBuild.setId(id);
 
-        ItemList itemList = toDoLists.getItemList(parameters.get("name"));
-
         // adding item to the ItemList
         itemList.addItem(iBuild.getItem());
 
@@ -59,8 +64,6 @@ public class Controller {
     private String generateId(){
         throw new UnsupportedOperationException("Not complete yet");
     }
-
-    public void setCurrItemList(String name){ itemList = toDoLists.getItemList(name); }
 
     public HashMap<String, Item> getIncomplete(){ return itemList.getIncomplete(); }
 
