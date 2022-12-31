@@ -5,8 +5,10 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Line;
+import javafx.scene.text.Text;
 
 public class MainView {
     VBox toDoLists;
@@ -16,20 +18,39 @@ public class MainView {
         toDoLists = new VBox(0);
         toDoLists.setPadding(new Insets(0,0,0,0));
         toDoLists.setStyle("-fx-background-color: #000000;");
-        toDoLists.setAlignment(Pos.CENTER);
+        toDoLists.setAlignment(Pos.TOP_CENTER);
 
         double[] dimension = UIDimensions.categoryDim;
         toDoLists.setPrefWidth(dimension[0]);
 
+        StackPane listHeader = new StackPane();
+        listHeader.setPadding(new Insets(0,0,0,5));
+        listHeader.setPrefWidth(dimension[0]);
+        listHeader.setPrefHeight(dimension[1]);
+        listHeader.setStyle("-fx-background-color: #000000;");
+        listHeader.setAlignment(Pos.BOTTOM_LEFT);
+
+        Text text = new Text("Lists");
+        text.setStyle("-fx-stroke: #ffffff; -fx-stroke-width: 1.5; -fx-fill: #ffffff; -fx-font-size: 40");
+
+        listHeader.getChildren().add(text);
+
+        toDoLists.getChildren().add(listHeader);
+        toDoLists.getChildren().add(getListLine());
+
         root = new HBox(20);
         root.setPadding(new Insets(0,0,0,0));
         root.setStyle("-fx-background-color: #ffffff");
-        root.setAlignment(Pos.CENTER);
+        root.setAlignment(Pos.BOTTOM_LEFT);
         root.getChildren().add(toDoLists);
     }
 
     public void addToDoList(Node toDoList){
+        toDoLists.getChildren().add(toDoList);
+        toDoLists.getChildren().add(getListLine());
+    }
 
+    private Line getListLine(){
         Line line = new Line();
         line.setStartX(0.0f);
         line.setStartY(0.0f);
@@ -37,8 +58,7 @@ public class MainView {
         line.setEndY(0);
         line.setStyle("-fx-fill: #808080; -fx-stroke: #808080;");
 
-        toDoLists.getChildren().add(line);
-        toDoLists.getChildren().add(toDoList);
+        return line;
     }
 
     public Scene getRoot(){
