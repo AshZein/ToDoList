@@ -15,7 +15,7 @@ public class MainView {
     public MainView(){
         toDoLists = new VBox(0);
         toDoLists.setPadding(new Insets(4,4,4,4));
-//        toDoLists.setStyle("-fx-background-color: #000000");
+        toDoLists.setStyle("-fx-background-color: #000000");
         toDoLists.setAlignment(Pos.CENTER);
 
         root = new HBox(20);
