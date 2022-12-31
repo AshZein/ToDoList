@@ -47,7 +47,26 @@ public class Controller {
 
     public HashMap<String, Item> getIncomplete(){ return itemList.getIncomplete(); }
 
-    public HashMap<String,Item> getComplete(){
-        return itemList.getCompleted();
+    public HashMap<String,Item> getComplete(){ return itemList.getCompleted(); }
+
+    /*
+     * creates the two base ToDoLists complete and incomplete
+     */
+    private void createBaseLists() {
+        try {
+            toDoLists.createList("Complete");
+            toDoLists.createList("Incomplete");
+        }catch (ListAlreadyExistsException e){
+            System.out.println("ListAlreadyExists exception caught.");
+        }
+    }
+
+    private void initializeMainViewToDoLists(){
+        String[] names = toDoLists.getToDoListNames();
+
+        for (String name: names){
+            CategoryView temp = new CategoryView(name);
+            mView.addToDoList(temp.drawCategoryView());
+        }
     }
 }
