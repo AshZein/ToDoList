@@ -2,14 +2,20 @@ package Controller;
 
 import Model.Item;
 import Model.ItemList;
+import Views.MainView;
+import javafx.stage.Stage;
 
 import java.util.HashMap;
 
 public class Controller {
+    MainView mView;
     ItemList itemList;
+    Stage stage;
 
-    public Controller(){
+    public Controller(Stage stage){
         itemList = new ItemList();
+        this.stage = stage;
+        mView = new MainView();
     }
 
     public String addItem(HashMap<String, String> parameters){
