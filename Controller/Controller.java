@@ -1,9 +1,12 @@
 package Controller;
 
+import Exceptions.ListAlreadyExistsException;
 import Model.Item;
 import Model.ItemList;
 import Model.ToDoLists;
+import Views.CategoryView;
 import Views.MainView;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.util.HashMap;
@@ -14,10 +17,24 @@ public class Controller {
     ItemList itemList;
     Stage stage;
 
-    public Controller(Stage stage){
+    Scene scene;
+
+    public Controller(Stage stage) throws ListAlreadyExistsException {
         toDoLists = new ToDoLists();
+        createBaseLists();
+
         this.stage = stage;
         mView = new MainView();
+
+        initializeMainViewToDoLists();
+
+        scene = mView.getRoot();
+
+        this.stage.setHeight(scene.getHeight()+100);
+        this.stage.setWidth(scene.getWidth()+100);
+
+        this.stage.setScene(scene);
+        this.stage.show();
     }
 
     public String addItem(HashMap<String, String> parameters){
