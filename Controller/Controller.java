@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Item;
 import Model.ItemList;
+import Model.ToDoLists;
 import Views.MainView;
 import javafx.stage.Stage;
 
@@ -9,11 +10,12 @@ import java.util.HashMap;
 
 public class Controller {
     MainView mView;
+    ToDoLists toDoLists;
     ItemList itemList;
     Stage stage;
 
     public Controller(Stage stage){
-        itemList = new ItemList();
+        toDoLists = new ToDoLists();
         this.stage = stage;
         mView = new MainView();
     }
@@ -29,6 +31,8 @@ public class Controller {
         String id = generateId();
         iBuild.setId(id);
 
+        ItemList itemList = toDoLists.getItemList(parameters.get("name"));
+
         // adding item to the ItemList
         itemList.addItem(iBuild.getItem());
 
@@ -39,11 +43,11 @@ public class Controller {
         throw new UnsupportedOperationException("Not complete yet");
     }
 
-    public HashMap<String, Item> getIncomplete(){
-        return itemList.getIncomplete();
-    }
+    public void setCurrItemList(String name){ itemList = toDoLists.getItemList(name); }
 
-    public HashMap<String,Item> getComplet(){
+    public HashMap<String, Item> getIncomplete(){ return itemList.getIncomplete(); }
+
+    public HashMap<String,Item> getComplete(){
         return itemList.getCompleted();
     }
 }
