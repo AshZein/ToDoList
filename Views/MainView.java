@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Line;
 
 public class MainView {
     VBox toDoLists;
@@ -13,8 +14,8 @@ public class MainView {
 
     public MainView(){
         toDoLists = new VBox(0);
-        toDoLists.setPadding(new Insets(4,4,4,4));
-        toDoLists.setStyle("-fx-background-color: #000000");
+        toDoLists.setPadding(new Insets(0,0,0,0));
+        toDoLists.setStyle("-fx-background-color: #000000;");
         toDoLists.setAlignment(Pos.CENTER);
 
         double[] dimension = UIDimensions.categoryDim;
@@ -28,6 +29,15 @@ public class MainView {
     }
 
     public void addToDoList(Node toDoList){
+
+        Line line = new Line();
+        line.setStartX(0.0f);
+        line.setStartY(0.0f);
+        line.setEndX(UIDimensions.categoryDim[0]);
+        line.setEndY(0);
+        line.setStyle("-fx-fill: #808080; -fx-stroke: #808080;");
+
+        toDoLists.getChildren().add(line);
         toDoLists.getChildren().add(toDoList);
     }
 
