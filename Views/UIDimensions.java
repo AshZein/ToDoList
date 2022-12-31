@@ -2,9 +2,9 @@ package Views;
 
 public class UIDimensions {
     // all dimensions are {x, y}
-    int[] categoryDim = new int[] {316, 100};
-    int[] stageDim = new int[] {950, 750};
-    int[] itemViewDim = new int[]{634, 750};
-    int[] mainViewDim = new int[]{950, 750};
-    int[] listViewDim = new int[]{316, 750};
+    static double[] categoryDim = new double[] {316, 100};
+    static double[] stageDim = new double[] {950, 750};
+    static double[] itemViewDim = new double[]{634, 750};
+    static double[] mainViewDim = new double[]{950, 750};
+    static double[] listViewDim = new double[]{316, 750};
 }
