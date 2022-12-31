@@ -19,4 +19,8 @@ public class ToDoLists {
             lists.put(name, new ItemList());
         }
     }
+
+    public ItemList getItemList(String name){
+        return lists.get(name);
+    }
 }
