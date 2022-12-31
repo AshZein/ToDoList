@@ -23,4 +23,8 @@ public class ToDoLists {
     public ItemList getItemList(String name){
         return lists.get(name);
     }
+
+    public String[] getToDoListNames(){
+        return lists.keySet().toArray(new String[0]);
+    }
 }
