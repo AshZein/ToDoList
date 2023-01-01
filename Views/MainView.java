@@ -26,8 +26,8 @@ public class MainView {
         toDoLists.setAlignment(Pos.TOP_CENTER);
 
         double[] catDimension = UIDimensions.categoryDim;
-        toDoLists.setPrefWidth(catDimension[0]);
-        toDoLists.setPrefHeight(UIDimensions.stageDim[1]);
+        toDoLists.setPrefSize(catDimension[0], UIDimensions.stageDim[1]);
+        toDoLists.setMinSize(catDimension[0], UIDimensions.stageDim[1]);
 
         StackPane listHeader = new StackPane();
         listHeader.setPadding(new Insets(0,0,0,5));
@@ -44,7 +44,7 @@ public class MainView {
         toDoLists.getChildren().add(listHeader);
         toDoLists.getChildren().add(getListLine());
 
-        root = new HBox(20);
+        root = new HBox(0);
         root.setPadding(new Insets(0,0,0,0));
         root.setStyle("-fx-background-color: #ffffff");
         root.setAlignment(Pos.BOTTOM_LEFT);

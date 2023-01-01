@@ -21,7 +21,9 @@ public class ListView {
     public VBox drawListView(){
         VBox out = new VBox();
         out.setStyle("-fx-background-color: #000000;");
-        out.setMaxSize(UIDimensions.listViewDim[0], UIDimensions.listViewDim[1]);
+        out.setMaxSize(UIDimensions.itemViewDim[0], UIDimensions.listViewDim[1]);
+        out.setMinSize(UIDimensions.itemViewDim[0], UIDimensions.listViewDim[1]);
+        out.setPrefSize(UIDimensions.itemViewDim[0], UIDimensions.listViewDim[1]);
 
         StackPane header = new StackPane();
         header.setMaxSize(UIDimensions.itemViewDim[0], UIDimensions.itemViewDim[1] * 1.5);

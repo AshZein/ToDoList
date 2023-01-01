@@ -7,6 +7,7 @@ import Model.ToDoLists;
 import Views.CategoryView;
 import Views.ListView;
 import Views.MainView;
+import Views.UIDimensions;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -32,8 +33,8 @@ public class Controller {
 
         scene = mView.getRoot();
 
-        this.stage.setHeight(scene.getHeight()+100);
-        this.stage.setWidth(scene.getWidth()+100);
+        this.stage.setHeight(UIDimensions.stageDim[1]);
+        this.stage.setWidth(UIDimensions.stageDim[0]);
 
         this.stage.setScene(scene);
         this.stage.show();
