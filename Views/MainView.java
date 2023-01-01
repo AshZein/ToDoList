@@ -10,12 +10,16 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 import javafx.scene.control.ScrollPane;
+import Controller.Controller;
 
 public class MainView {
     VBox toDoLists;
     HBox root;
+    Controller control;
 
-    public MainView(){
+    public MainView(Controller control){
+        this.control = control;
+
         toDoLists = new VBox(0);
         toDoLists.setPadding(new Insets(0,0,0,0));
         toDoLists.setStyle("-fx-background-color: #000000;");
