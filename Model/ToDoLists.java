@@ -16,7 +16,7 @@ public class ToDoLists {
             throw new ListAlreadyExistsException("This List already exists");
         }
         else{
-            lists.put(name, new ItemList());
+            lists.put(name, new ItemList(name));
         }
     }
 
