@@ -14,7 +14,7 @@ public class ItemListTests {
 
     @Test
     public void basicItemListTest(){
-        ItemList iList = new ItemList();
+        ItemList iList = new ItemList("test1");
 
         ItemBuilder iBuild = new ItemBuilder();
         iBuild.setDate("2022/12/23");
@@ -48,7 +48,7 @@ public class ItemListTests {
 
     @Test
     public void basicTwoItemListTest(){
-        ItemList iList = new ItemList();
+        ItemList iList = new ItemList("test2");
 
         ItemBuilder iBuild = new ItemBuilder();
         iBuild.setDate("2022/12/23");
@@ -97,7 +97,7 @@ public class ItemListTests {
 
     @Test
     public void incompleteItemExceptionTest(){
-        ItemList iList = new ItemList();
+        ItemList iList = new ItemList("test3");
         Exception exception = assertThrows(NoSuchElementException.class, () -> {
             iList.incompleteItem("abc123");
         });
@@ -109,7 +109,7 @@ public class ItemListTests {
 
     @Test
     public void completeItemExceptionTest(){
-        ItemList iList = new ItemList();
+        ItemList iList = new ItemList("test4");
         Exception exception = assertThrows(NoSuchElementException.class, () -> {
             iList.completeItem("abc123");
         });

@@ -6,9 +6,19 @@ import java.util.NoSuchElementException;
 public class ItemList {
     HashMap<String,Item> complete =  new HashMap<String,Item>();
     HashMap<String,Item> incomplete = new HashMap<String,Item>();
+    String title;
+    int numItems;
+
+    public ItemList(String title){
+        this.title = title;
+        numItems = 0;
+    }
+
+    public String getTitle(){ return this.title; }
 
     public void addItem(Item item){
         incomplete.put(item.getId(), item);
+        numItems++;
     }
     public boolean completeItem(String id){
         if(incomplete.containsKey(id)){
