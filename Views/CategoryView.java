@@ -27,6 +27,8 @@ public class CategoryView {
         stackOut.getChildren().add(text);
 
         stackOut.setId(this.name);
+        stackOut.setMinSize(dimension[0], dimension[1]);
+        stackOut.setMaxSize(dimension[0], dimension[1]);
 
         return stackOut;
     }
