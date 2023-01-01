@@ -20,13 +20,14 @@ public class MainView {
         toDoLists.setStyle("-fx-background-color: #000000;");
         toDoLists.setAlignment(Pos.TOP_CENTER);
 
-        double[] dimension = UIDimensions.categoryDim;
-        toDoLists.setPrefWidth(dimension[0]);
+        double[] catDimension = UIDimensions.categoryDim;
+        toDoLists.setPrefWidth(catDimension[0]);
+        toDoLists.setPrefHeight(UIDimensions.stageDim[1]);
 
         StackPane listHeader = new StackPane();
         listHeader.setPadding(new Insets(0,0,0,5));
-        listHeader.setPrefWidth(dimension[0]);
-        listHeader.setPrefHeight(dimension[1]);
+        listHeader.setPrefWidth(catDimension[0]);
+        listHeader.setPrefHeight(catDimension[1]);
         listHeader.setStyle("-fx-background-color: #000000;");
         listHeader.setAlignment(Pos.BOTTOM_LEFT);
 
