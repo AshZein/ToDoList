@@ -26,6 +26,8 @@ public class CategoryView {
         text.setStyle("-fx-stroke: #ffffff; -fx-stroke-width: 1.5; -fx-fill: #ffffff");
         stackOut.getChildren().add(text);
 
+        stackOut.setId(this.name);
+
         return stackOut;
     }
 }
