@@ -47,6 +47,18 @@ public class ItemList {
         }
     }
 
+    public Item getItem(String id){
+        if (complete.containsKey(id)){
+            return complete.get(id);
+        }
+        else if (incomplete.containsKey(id)){
+            return incomplete.get(id);
+        }
+        else{
+            throw new NoSuchElementException("This item does not exist.");
+        }
+    }
+
     public HashMap<String,Item> getCompleted(){
         return this.complete;
     }
