@@ -55,6 +55,12 @@ public class MainView {
         toDoScroll.hbarPolicyProperty().set(ScrollPane.ScrollBarPolicy.NEVER);
         toDoScroll.vbarPolicyProperty().set(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         root.getChildren().add(toDoScroll);
+
+        // Figure out a way to avoid this maybe
+        VBox temp = new VBox();
+        root.getChildren().add(temp);
+
+        setListView();
     }
 
     public void addToDoList(Node toDoList){
@@ -76,4 +82,17 @@ public class MainView {
     public Scene getRoot(){
         return new Scene(root, UIDimensions.stageDim[0], UIDimensions.stageDim[1]);
     }
+
+    public void setListView(){
+        ListView lView = control.getListView();
+
+
+        ScrollPane listViewScroll = new ScrollPane(lView.drawListView());
+        listViewScroll.setFitToWidth(true);
+        listViewScroll.setFitToHeight(true);
+        listViewScroll.hbarPolicyProperty().set(ScrollPane.ScrollBarPolicy.NEVER);
+        listViewScroll.vbarPolicyProperty().set(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        root.getChildren().set(1, listViewScroll);
+    }
+
 }
