@@ -5,6 +5,7 @@ import Model.Item;
 import Model.ItemList;
 import Model.ToDoLists;
 import Views.CategoryView;
+import Views.ListView;
 import Views.MainView;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -16,6 +17,7 @@ public class Controller {
     ToDoLists toDoLists;
     ItemList itemList;
     Stage stage;
+    int tempIdGen = 0;
 
     Scene scene;
 
@@ -24,7 +26,7 @@ public class Controller {
         createBaseLists();
 
         this.stage = stage;
-        mView = new MainView();
+        mView = new MainView(this);
 
         initializeMainViewToDoLists();
 
@@ -60,9 +62,11 @@ public class Controller {
 
         return id;
     }
-
+    //TODO This is a temporary id generator
     private String generateId(){
-        throw new UnsupportedOperationException("Not complete yet");
+        Integer out = new Integer(tempIdGen);
+        tempIdGen++;
+        return out.toString();
     }
 
     public HashMap<String, Item> getIncomplete(){ return itemList.getIncomplete(); }
@@ -76,9 +80,23 @@ public class Controller {
         try {
             toDoLists.createList("Complete");
             toDoLists.createList("Incomplete");
+
+            // For TESTING
+            itemList = toDoLists.getItemList("Complete");
+            for(int i = 0; i < 10; i++) {
+                HashMap<String, String> temp = new HashMap<>();
+                temp.put("title", "TESTTTT" + generateId());
+                addItem(temp);
+            }
+
         }catch (ListAlreadyExistsException e){
             System.out.println("ListAlreadyExists exception caught.");
         }
+    }
+
+    public ListView getListView(){
+        ListView lView = new ListView(itemList);
+        return lView;
     }
 
     private void initializeMainViewToDoLists(){
