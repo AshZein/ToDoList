@@ -9,6 +9,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
+import javafx.scene.control.ScrollPane;
 
 public class MainView {
     VBox toDoLists;
@@ -43,7 +44,13 @@ public class MainView {
         root.setPadding(new Insets(0,0,0,0));
         root.setStyle("-fx-background-color: #ffffff");
         root.setAlignment(Pos.BOTTOM_LEFT);
-        root.getChildren().add(toDoLists);
+
+        ScrollPane toDoScroll = new ScrollPane(toDoLists);
+        toDoScroll.setFitToWidth(true);
+        toDoScroll.setFitToHeight(true);
+        toDoScroll.hbarPolicyProperty().set(ScrollPane.ScrollBarPolicy.NEVER);
+        toDoScroll.vbarPolicyProperty().set(ScrollPane.ScrollBarPolicy.ALWAYS);
+        root.getChildren().add(toDoScroll);
     }
 
     public void addToDoList(Node toDoList){
