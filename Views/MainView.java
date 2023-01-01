@@ -9,6 +9,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
+import javafx.scene.control.ScrollPane;
 
 public class MainView {
     VBox toDoLists;
@@ -20,13 +21,14 @@ public class MainView {
         toDoLists.setStyle("-fx-background-color: #000000;");
         toDoLists.setAlignment(Pos.TOP_CENTER);
 
-        double[] dimension = UIDimensions.categoryDim;
-        toDoLists.setPrefWidth(dimension[0]);
+        double[] catDimension = UIDimensions.categoryDim;
+        toDoLists.setPrefWidth(catDimension[0]);
+        toDoLists.setPrefHeight(UIDimensions.stageDim[1]);
 
         StackPane listHeader = new StackPane();
         listHeader.setPadding(new Insets(0,0,0,5));
-        listHeader.setPrefWidth(dimension[0]);
-        listHeader.setPrefHeight(dimension[1]);
+        listHeader.setPrefWidth(catDimension[0]);
+        listHeader.setPrefHeight(catDimension[1]);
         listHeader.setStyle("-fx-background-color: #000000;");
         listHeader.setAlignment(Pos.BOTTOM_LEFT);
 
@@ -42,7 +44,13 @@ public class MainView {
         root.setPadding(new Insets(0,0,0,0));
         root.setStyle("-fx-background-color: #ffffff");
         root.setAlignment(Pos.BOTTOM_LEFT);
-        root.getChildren().add(toDoLists);
+
+        ScrollPane toDoScroll = new ScrollPane(toDoLists);
+        toDoScroll.setFitToWidth(true);
+        toDoScroll.setFitToHeight(true);
+        toDoScroll.hbarPolicyProperty().set(ScrollPane.ScrollBarPolicy.NEVER);
+        toDoScroll.vbarPolicyProperty().set(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+        root.getChildren().add(toDoScroll);
     }
 
     public void addToDoList(Node toDoList){
