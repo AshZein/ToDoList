@@ -49,7 +49,7 @@ public class MainView {
         toDoScroll.setFitToWidth(true);
         toDoScroll.setFitToHeight(true);
         toDoScroll.hbarPolicyProperty().set(ScrollPane.ScrollBarPolicy.NEVER);
-        toDoScroll.vbarPolicyProperty().set(ScrollPane.ScrollBarPolicy.ALWAYS);
+        toDoScroll.vbarPolicyProperty().set(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         root.getChildren().add(toDoScroll);
     }
 
