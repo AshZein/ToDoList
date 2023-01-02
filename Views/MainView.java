@@ -20,6 +20,7 @@ public class MainView {
     public MainView(Controller control){
         this.control = control;
 
+        //The left pane of the screen with all the list categories
         toDoLists = new VBox(0);
         toDoLists.setPadding(new Insets(0,0,0,0));
         toDoLists.setStyle("-fx-background-color: #000000;");
@@ -29,6 +30,7 @@ public class MainView {
         toDoLists.setPrefSize(catDimension[0], UIDimensions.stageDim[1]);
         toDoLists.setMinSize(catDimension[0], UIDimensions.stageDim[1]);
 
+        //Left side pane title
         StackPane listHeader = new StackPane();
         listHeader.setPadding(new Insets(0,0,0,5));
         listHeader.setPrefWidth(catDimension[0]);
@@ -44,11 +46,13 @@ public class MainView {
         toDoLists.getChildren().add(listHeader);
         toDoLists.getChildren().add(getListLine());
 
+        //Main application layout, list categories on the left, and selected categories list view on the right
         root = new HBox(0);
         root.setPadding(new Insets(0,0,0,0));
         root.setStyle("-fx-background-color: #ffffff");
         root.setAlignment(Pos.BOTTOM_LEFT);
 
+        //List category VBox wrapped by a scroll pane 
         ScrollPane toDoScroll = new ScrollPane(toDoLists);
         toDoScroll.setFitToWidth(true);
         toDoScroll.setFitToHeight(true);
@@ -67,7 +71,9 @@ public class MainView {
         toDoLists.getChildren().add(toDoList);
         toDoLists.getChildren().add(getListLine());
     }
-
+    /*
+     * Creates a line to seperate the list categories, for aesthetics
+     */
     private Line getListLine(){
         Line line = new Line();
         line.setStartX(0.0f);
@@ -83,6 +89,9 @@ public class MainView {
         return new Scene(root, UIDimensions.stageDim[0], UIDimensions.stageDim[1]);
     }
 
+    /*
+     * Sets the listview to the currently selected caegories listView
+     */
     public void setListView(){
         ListView lView = control.getListView();
 
