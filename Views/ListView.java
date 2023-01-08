@@ -2,6 +2,7 @@ package Views;
 
 import Model.Item;
 import Model.ItemList;
+import Controller.Controller;
 import javafx.geometry.Pos;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -11,9 +12,11 @@ import javafx.scene.text.TextAlignment;
 
 public class ListView {
     ItemList itemList;
+    Controller control;
     String title;
 
-    public ListView(ItemList itemList){
+    public ListView(ItemList itemList, Controller control){
+        this.control = control;
         this.itemList = itemList;
         title = itemList.getTitle();
     }
@@ -44,7 +47,7 @@ public class ListView {
             Item item = itemList.getItem(itemId);
             ItemView itemView = new ItemView(item);
 
-            out.getChildren().add(itemView.drawItemView());
+            out.getChildren().add(itemView.drawItemView(control));
             out.getChildren().add(getListLine());
         }
 
@@ -52,7 +55,7 @@ public class ListView {
             Item item = itemList.getItem(itemId);
             ItemView itemView = new ItemView(item);
 
-            out.getChildren().add(itemView.drawItemView());
+            out.getChildren().add(itemView.drawItemView(control));
             out.getChildren().add(getListLine());
         }
 
