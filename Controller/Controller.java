@@ -17,6 +17,7 @@ public class Controller {
     MainView mView;
     ToDoLists toDoLists;
     ItemList itemList;
+    Item item;
     Stage stage;
     int tempIdGen = 0;
 
@@ -43,6 +44,8 @@ public class Controller {
      * need to setCurrItemList before using getIncomplete, getComplete and addItem
      */
     public void setCurrItemList(String name){ itemList = toDoLists.getItemList(name); }
+
+    public void setCurrItem(String id){ item = itemList.getItem(id);} // TODO need to make this switch to a more detailed view if needed, maybe
 
     /*
      * add an item to the currently selected ItemList
@@ -96,7 +99,7 @@ public class Controller {
     }
 
     public ListView getListView(){
-        ListView lView = new ListView(itemList);
+        ListView lView = new ListView(itemList, this);
         return lView;
     }
 
@@ -105,7 +108,7 @@ public class Controller {
 
         for (String name: names){
             CategoryView temp = new CategoryView(name);
-            mView.addToDoList(temp.drawCategoryView());
+            mView.addToDoList(temp.drawCategoryView(this));
         }
     }
 }
