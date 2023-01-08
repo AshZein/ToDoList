@@ -1,5 +1,6 @@
 package Views;
 
+import Controller.Controller;
 import Model.Item;
 import javafx.geometry.Pos;
 import javafx.scene.layout.VBox;
@@ -14,7 +15,7 @@ public class ItemView {
         this.item = item;
     }
 
-    public VBox drawItemView() {
+    public VBox drawItemView(Controller control) {
         double[] dimension = UIDimensions.itemViewDim;
         Font[] fonts = UIDimensions.itemFont;
 
@@ -36,6 +37,10 @@ public class ItemView {
 
         pieces.getChildren().add(title);
         pieces.getChildren().add(dateTime);
+
+        pieces.setOnMouseClicked(e -> {
+            control.setCurrItem(item.getId());
+        });
 
         return pieces;
     }
