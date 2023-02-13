@@ -23,16 +23,20 @@ public class ListView {
 
     public VBox drawListView(){
         VBox out = new VBox();
+
+        // Setting preferred dimensions
         out.setStyle("-fx-background-color: #000000;");
         out.setMaxSize(UIDimensions.itemViewDim[0], UIDimensions.listViewDim[1]);
         out.setMinSize(UIDimensions.itemViewDim[0], UIDimensions.listViewDim[1]);
         out.setPrefSize(UIDimensions.itemViewDim[0], UIDimensions.listViewDim[1]);
 
+        // setting the header element size
         StackPane header = new StackPane();
         header.setMaxSize(UIDimensions.itemViewDim[0], UIDimensions.itemViewDim[1] * 1.5);
         header.setStyle("-fx-background-color: #000000;");
         header.setAlignment(Pos.BASELINE_LEFT);
 
+        // setting the header element text, font and size
         Text headerText = new Text(title);
         headerText.setFont(UIDimensions.listTitleFont);
         headerText.setStyle("-fx-stroke: #ffffff; -fx-stroke-width: 1.5; -fx-fill: #ffffff");
@@ -63,6 +67,7 @@ public class ListView {
     }
 
     private Line getListLine(){
+        // creates a line UI element to separate list elements
         Line line = new Line();
         line.setStartX(0.0f);
         line.setStartY(0.0f);
