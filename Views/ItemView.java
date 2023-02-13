@@ -2,6 +2,7 @@ package Views;
 
 import Controller.Controller;
 import Model.Item;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -32,8 +33,9 @@ public class ItemView {
         complete = new HBox();
         complete.setMaxSize(dimension[0], dimension[1]);
         complete.setMinSize(dimension[0], dimension[1]);
-        complete.setAlignment(Pos.BASELINE_LEFT);
+        complete.setAlignment(Pos.CENTER);
         complete.setStyle(backColour);
+        complete.setPadding(new Insets(20));
 
         StackPane checkBox = DrawCheckBox(dimension, dimension);
 
@@ -71,16 +73,16 @@ public class ItemView {
     private StackPane DrawCheckBox(double[] maxSize, double[] minSize){
         StackPane checkBox = new StackPane();
 
-        checkBox.setMaxSize(maxSize[0], maxSize[1]);
-        checkBox.setMinSize(minSize[0], minSize[1]);
+        checkBox.setMaxSize(maxSize[0]/20, maxSize[0]/20);
+        checkBox.setMinSize(minSize[0]/20, minSize[1]/20);
+        checkBox.setAlignment(Pos.CENTER);
 
         checkBox.setStyle(backColour);
 
-        Canvas square = new Canvas(maxSize[0], minSize[0]);
+        Canvas square = new Canvas(maxSize[0]/20, minSize[0]/20);
         GraphicsContext gc = square.getGraphicsContext2D();
         gc.setStroke(Color.WHITE);
-        gc.strokeRect(0,0, maxSize[0]/20, maxSize[0]/20);
-
+        gc.strokeRect(10.0 / 2,10.0 / 2, maxSize[0]/20 - 10, maxSize[0]/20 - 10);
         checkBox.getChildren().add(square);
 
         return checkBox;
