@@ -33,7 +33,7 @@ public class ListView {
         // setting the header element size
         StackPane header = new StackPane();
         header.setMaxSize(UIDimensions.itemViewDim[0], UIDimensions.itemViewDim[1] * 1.5);
-        header.setStyle("-fx-background-color: #000000;");
+        header.setStyle("-fx-background-color: #3333CC;");
         header.setAlignment(Pos.BASELINE_LEFT);
 
         // setting the header element text, font and size
